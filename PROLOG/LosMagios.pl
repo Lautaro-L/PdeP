@@ -30,6 +30,22 @@ gozaBeneficio(lenny, economico(descuento, 500)).
 
 %Punto 1'
 
+noEsMagio(Persona):-
+    persona(Persona),
+    not(esMagio(Persona)),
+    not(aspiranteMagio(Persona)).
+
+nombre(Persona):- 
+    noEsMagio(Persona).
+
+nombre(Persona):- persona(alMando(Persona, _)).
+nombre(Persona):- persona(novato(Persona)).
+nombre(Persona):- persona(elElegido(Persona)).
+
+
+
+
+
 esMagio(Persona):-
     persona(alMando(Persona, _)).
 
@@ -81,6 +97,22 @@ sienteEnvidia(Persona, EnvidiaA):-
     findall(Magio, persona(alMando(Magio, _)), EnvidiaA).
 
 %--------------- Fin punto 3
+
+sienteEnvidiaV2(Persona, Envidiados):-
+    nombre(Persona),
+    findall(Envidiado, envidia(Persona, Envidiado), Envidiados).
+
+envidia(Persona, Envidiado):-
+    aspiranteMagio(Persona),
+    esMagio(Envidiado).
+
+envidia(Persona, Envidiado):-
+    noEsMagio(Persona),
+    aspiranteMagio(Envidiado).
+
+envidia(Persona, Envidiado):-
+    persona(novato(Persona)),
+    persona(alMando(Envidiado, _)).
 
 %--------------- Inicio punto 4
 

@@ -1,7 +1,7 @@
 class Pirata{
 	var property items
 	var ebriedad
-	var dinero
+	var dinero = 10
 	const espiaDeLaCorona
 	const property invitadoPor
 	
@@ -27,8 +27,8 @@ class Pirata{
 		return dinero
 	}
 	
-	method dinero( cantidad ) {
-		( dinero += cantidad ).max(0)
+	method dinero(cantidad) {
+		(dinero += cantidad).max(0)
 	}
 	
 	method tieneItems(requisitos){
@@ -39,21 +39,11 @@ class Pirata{
 		return	items.contains(item)
 	}
 	
-	
-	method saquear(){
-		return espiaDeLaCorona && items.contains("permiso de la corona")
+	method tieneXItems(cantidad){
+		return items.size() >= cantidad 
 	}
 	
-	method saquear(victima){
-		return victima
+	method seAnimaAAtacar(victima){
+		return self.nivelDeEbriedad() >= victima.nivelDeEbriedadRequerido()
 	}
-	
-	method convertirseEnLeyenda(itemObligatorio){
-		return (items.contains(itemObligatorio) and (items.size() >=10 ))
-	}
-	
-	method saqueo(parametro, victima){
-		return (dinero < parametro and self.saquear(victima))
-	}
-	
 }

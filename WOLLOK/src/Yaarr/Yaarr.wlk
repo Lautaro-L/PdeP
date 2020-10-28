@@ -20,15 +20,16 @@ class Pirata{
 	
 	method tomarUnTrago(){
 		self.incrementarEbriedad(5)
-		self.dinero(-1)
+		self.gastarDinero(1)
 	}
 	
 	method dinero(){
 		return dinero
 	}
 	
-	method dinero(cantidad) {
-		(dinero += cantidad).max(0)
+	method gastarDinero(cantidad) {
+		if (dinero < cantidad){throw new Exception(message = 'Oops! No tiene mas monedas :frowning: ')}
+		else {dinero -= cantidad}
 	}
 	
 	method tieneItems(requisitos){

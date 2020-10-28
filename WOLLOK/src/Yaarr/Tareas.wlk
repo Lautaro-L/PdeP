@@ -2,7 +2,7 @@ import Yaarr.*
 
 object busquedaDelTesoro {
 	const requisitos = ["mapa" , "brujula" , "Botella de GrogXD"]
-	method cumpleRequisitos(pirata){
+	method sirveElPirata(pirata){
 		return ( pirata.dinero() <= 5 and pirata.tieneItems(requisitos))
 		}
 		
@@ -15,7 +15,7 @@ object busquedaDelTesoro {
 class ConvertirseEnLeyenda{
 	const itemEspecial
 	
-	method elPirataEsLeyenda(pirata){
+	method sirveElPirata(pirata){
 		return pirata.tieneItem(itemEspecial) and pirata.tieneXItems(10)
 	}
 }
@@ -29,7 +29,7 @@ class Saquear{
 	}
 	
 	method sirveBarco(barco){
-		return objetivo.esVulnerableA(barco)
+		return ( objetivo.esVulnerableA(barco) or barco.todosPasados())
 	}
 	
 }

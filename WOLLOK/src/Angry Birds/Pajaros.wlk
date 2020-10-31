@@ -113,6 +113,10 @@ class Huevo{
 			pajaros.forEach({ pajaro => pajaro.enfrentarObstaculo( islaCerdos.obstaculos() )})
 		}
 		
+		method seRecuperaronLosHuevos(islaCerdos){
+			return  islaCerdos.cerdos().isEmpty()
+		}
+		
 	}
 	
 class SesionDeManejoDeIra{

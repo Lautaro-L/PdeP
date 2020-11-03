@@ -1,12 +1,25 @@
 import Armas.*
 
 class Mafioso{
-	var property estado
+	var muerto = false
+	var herido = false
 	var rango
 	var lealtad
 	
 	method duermeConLosPeces(){
-		return (estado == muerto) 
+		return muerto
+	}
+	
+	method morir(){
+		muerto = true
+	}
+	
+	method herirse(){
+		herido = true
+	}
+	
+	method herido(){
+		return herido
 	}
 	
 	method hacerSuTrabajo(victima){

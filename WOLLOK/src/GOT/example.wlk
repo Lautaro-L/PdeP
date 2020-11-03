@@ -1,4 +1,4 @@
-import Personalidades.*
+import Personalidadess.*
 class Persona{
 	const familia
 	const conyuges = []
